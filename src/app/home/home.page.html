@@ -13,6 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-  </div>
+  <ion-list *ngFor="let t of todo" style="margin-top: 1%;">
+    <ion-item *ngIf="t.done == false">
+      <ion-label style="margin-left: 3%;">{{ t.title }}</ion-label>
+      <ion-label color="primary" style="text-align: right; margin-right: 5%;">{{ t.due }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -10,6 +10,13 @@ export class HomePage {
 
   title = 'Aufgaben';
 
-  constructor() {}
+  todo = [];
+
+  constructor() {
+    this.todo = [
+      {title: 'Arbeitsauftrag erledigen', priority: 1, due: '2020-03-25', done: false},
+      {title: 'Arbeitsauftrag in APP4', priority: 2, due: '2020-03-18', done: true}
+    ]
+  }
 
 }
