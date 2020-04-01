@@ -17,14 +17,9 @@ export class HomePage {
       {title: 'Arbeitsauftrag erledigen', priority: 1, due: '2020-03-25', done: false},
       {title: 'Arbeitsauftrag in APP4', priority: 2, due: '2020-03-18', done: true}
     ];
-    this.todo.push;
-  }
-
-  ionViewWillEnter(){
-    this.todo = this.todo;
   }
 
   setDone(item){
-    console.log(this.todo[0]);
+    console.log(this.todo);
   }
 }
