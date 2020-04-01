@@ -20,6 +20,6 @@ export class HomePage {
   }
 
   setDone(item){
-    console.log(this.todo);
+    console.log(item.done);
   }
 }
