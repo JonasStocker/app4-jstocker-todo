@@ -26,10 +26,10 @@
 
   <ion-list style="margin-top: 1%; margin-left: 5%; margin-right: 5%;">
     <ng-container *ngFor="let t of todo">
-      <ion-item-sliding *ngIf="t.done == false">
+      <ion-item-sliding *ngIf="!t.done">
         <ion-item>
           <ion-label>{{ t.title }}</ion-label>
-          <ion-label color="primary" style="text-align: right;">{{ t.due }}</ion-label>
+          <ion-note slot="end" color="tertiary">{{ t.due }}</ion-note>
         </ion-item>
     
         <ion-item-options side="end">
