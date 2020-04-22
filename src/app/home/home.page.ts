@@ -10,14 +10,17 @@ import { v4 } from 'uuid';
 
 export class HomePage {
 
-  todo = [
-    {id: v4(), title: 'Arbeitsauftrag erledigen', note: 'Arbeitsauftrag muss noch erledigt werden', priority: 1, due: '2020-03-25', done: false},
-    {id: v4(), title: 'Arbeitsauftrag in APP4', note: 'Arbeitsauftrag in APP4 wurde schon erledigt', priority: 2, due: '2020-03-18', done: true}
-  ];
+  todo = [];
+
+  
 
   title = 'Aufgaben';
 
   constructor(private router: Router) {
+    this.todo = [
+    {id: v4(), title: 'Arbeitsauftrag erledigen', note: 'Arbeitsauftrag muss noch erledigt werden', priority: 1, due: '2020-03-25', done: false},
+    {id: v4(), title: 'Arbeitsauftrag in APP4', note: 'Arbeitsauftrag in APP4 wurde schon erledigt', priority: 2, due: '2020-03-18', done: true}
+  ];
   }
 
   ionViewWillEnter() {
