@@ -22,7 +22,6 @@ export class HomePage {
 
   ionViewWillEnter() {
     let id = v4();
-    console.log(this.todo);
   }
 
   showNote(id) {
@@ -30,12 +29,8 @@ export class HomePage {
       return t.id == id;
     });
 
-    console.log(pos);
-
     if (pos > -1) {
       const title = this.todo[pos].title;
-      
-      console.log("Titel: " + title);
 
       let extras: NavigationExtras = {
         state: {
