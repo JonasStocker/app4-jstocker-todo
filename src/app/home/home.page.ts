@@ -17,7 +17,7 @@ export class HomePage {
   todo = [
     new Topic('Arbeitsauftrag erledigen', 'Arbeitsauftrag muss noch erledigt werden', '2020-03-25', 'false'),
     new Topic('Arbeitsauftrag in APP4', 'Arbeitsauftrag in APP4 wurde schon erledigt', '2020-03-18', 'true'),
-    new Topic('Todo', 'Arbeitsauftrag in APP4', '2020-05-14', 'false'),
+    new Topic('Todo', 'Arbeitsauftrag in APP4', '2020-05-14'),
   ];
 
   
@@ -25,28 +25,7 @@ export class HomePage {
   title = 'Aufgaben';
 
   constructor(private router: Router, private modalCtrl: ModalController) {
-    //*this.todo = [
-    //{id: v4(), title: 'Arbeitsauftrag erledigen', note: 'Arbeitsauftrag muss noch erledigt werden', priority: 1, due: '2020-03-25', done: false},
-    //{id: v4(), title: 'Arbeitsauftrag in APP4', note: 'Arbeitsauftrag in APP4 wurde schon erledigt', priority: 2, due: '2020-03-18', done: true}
-  //];
-  }
-
-  ionViewWillEnter() {
-    //let id = v4();
-
-    console.log(this.todo)
-
-    let t = {
-      title: 'I bims, 1 Titel',
-      note: 'I bims, 1 Notiz',
-      id: 'iBimEineID'
-    }
-
-    console.log('t.title');
-
-    let to = new Topic('I bim 1 weiterer Titel', 'Und I bims de Beschreibung', '2020-12-31', 'false');
-
-    console.log(to.title);
+    
   }
 
   showNote(id) {

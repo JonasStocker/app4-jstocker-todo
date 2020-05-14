@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 
 export class Topic {
-    constructor(title: string, note: string, due: string, done: string, id?: string) {
+    constructor(title: string, note: string, due: string, done?: string, id?: string) {
         this.title = title;
         this.note = note;
         this.due = due;
@@ -12,6 +12,12 @@ export class Topic {
             this.id = id;
         } else {
             this.id = v4();
+        }
+
+        if(done) {
+            this.done = done;
+        } else {
+            this.done = "false";
         }
     }
 
@@ -46,7 +52,7 @@ export class Topic {
         
         let standardTitel = "Aufgabe";
 
-        if(this.title == "Todo") {
+        if(this.title.toUpperCase() == "TODO") {
             this._title = standardTitel;
         } else {
             this._title = this.title;
