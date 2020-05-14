@@ -6,27 +6,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-<!-- 
-  <ion-list style="margin-top: 1%;">
-    <ng-container *ngFor="let t of todo">
-      <ion-item *ngIf="t.done == false">
-        <ion-label style="margin-left: 3%;">{{ t.title }}</ion-label>
-        <ion-label color="primary" style="text-align: right; margin-right: 5%;">{{ t.due }}</ion-label>
-      </ion-item>
-    </ng-container>
-  </ion-list>
--->
-
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-list style="margin-top: 1%; margin-left: 5%; margin-right: 5%;">
     <ng-container *ngFor="let t of todo">
-      <ion-item-sliding *ngIf="!t.done">
+      <ion-item-sliding #item *ngIf="t.done == 'false'">
         <ion-item (click)="showNote(t.id)">
           <ion-label>{{ t.title }}</ion-label>
           <ion-note slot="end" color="tertiary">{{ t.due }}</ion-note>
@@ -34,6 +17,10 @@
     
         <ion-item-options side="end">
           <ion-item-option (click)="setDone(t)" color="success">Erledigt</ion-item-option>
+        </ion-item-options>
+
+        <ion-item-options side="start">
+          <ion-item-option (click)="editNote(t.id, item)" color="tertiary">Bearbeiten</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
     </ng-container>

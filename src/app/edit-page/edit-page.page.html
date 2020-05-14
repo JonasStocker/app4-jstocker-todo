@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bearbeiten</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="titleForm">
+    <ion-item>
+      <ion-label>
+        Titel:
+      </ion-label>
+
+      <ion-input type="text" formControlName="title">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Notiz:
+      </ion-label>
+
+      <ion-input type="text" formControlName="note">
+      </ion-input>
+    </ion-item>
+  </form>
+
+  <ion-button expand="full" [disabled]="!titleForm.valid" (click)="save()">
+    Speichern & Schließen
+  </ion-button>
+</ion-content>
