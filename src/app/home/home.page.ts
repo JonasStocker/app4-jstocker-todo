@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { v4 } from 'uuid';
 import { ModalController } from '@ionic/angular';
 import { EditPagePage } from '../edit-page/edit-page.page';
-import { toPublicName } from '@angular/compiler/src/i18n/serializers/xmb';
-import { Topic } from 'src/models/Topic';
+import { Todo } from 'src/models/Todo';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +13,9 @@ import { Topic } from 'src/models/Topic';
 export class HomePage {
 
   todo = [
-    new Topic('Arbeitsauftrag erledigen', 'Arbeitsauftrag muss noch erledigt werden', '2020-03-25', 'false'),
-    new Topic('Arbeitsauftrag in APP4', 'Arbeitsauftrag in APP4 wurde schon erledigt', '2020-03-18', 'true'),
-    new Topic('Todo', 'Arbeitsauftrag in APP4', '2020-05-14'),
+    new Todo('Arbeitsauftrag erledigen', 'Arbeitsauftrag muss noch erledigt werden', '2020-03-25', false),
+    new Todo('Arbeitsauftrag in APP4', 'Arbeitsauftrag in APP4 wurde schon erledigt', '2020-03-18', true),
+    new Todo('Todo', 'Arbeitsauftrag in APP4', '2020-05-14'),
   ];
 
   
@@ -50,8 +48,15 @@ export class HomePage {
     }
   }
 
-  setDone(item){
-    console.log(item.done);
+  setDone(id){
+    
+    const pos = this.todo.findIndex((t) => {
+      return t.id == id;
+    });
+
+    if (pos > -1) {
+      this.todo[pos].done = true;
+    }
   }
 
   async editNote(id, item) {

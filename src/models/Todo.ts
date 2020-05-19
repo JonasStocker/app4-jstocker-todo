@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 
-export class Topic {
-    constructor(title: string, note: string, due: string, done?: string, id?: string) {
+export class Todo {
+    constructor(title: string, note: string, due: string, done?: boolean, id?: string) {
         this.title = title;
         this.note = note;
         this.due = due;
@@ -17,7 +17,7 @@ export class Topic {
         if(done) {
             this.done = done;
         } else {
-            this.done = "false";
+            this.done = false;
         }
     }
 
@@ -38,25 +38,11 @@ export class Topic {
     }
 
     public set title(v : string) {
-        let blacklist = [];
-        
-        const pos = blacklist.findIndex((w) => {
-            return w == v;
-        });
-
-        if(pos > -1) {
-            this._title = "***";
-        } else {
-            this._title = v;
+        if (v == "Todo") {
+            v = "Aufgabe";
         }
-        
-        let standardTitel = "Aufgabe";
 
-        if(this.title.toUpperCase() == "TODO") {
-            this._title = standardTitel;
-        } else {
-            this._title = this.title;
-        }
+        this._title = v;
     }
 
 
@@ -80,12 +66,12 @@ export class Topic {
     }
 
 
-    private _done : string;
+    private _done : boolean;
 
-    public get done() : string {
+    public get done() : boolean {
         return this._done;
     }
-    public set done(v : string) {
+    public set done(v : boolean) {
         this._done = v;
     }
 }

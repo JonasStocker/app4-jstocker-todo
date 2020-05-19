@@ -7,16 +7,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-list style="margin-top: 1%; margin-left: 5%; margin-right: 5%;">
+  <ion-list class="ion-margin-start ion-margin-end ion-margin-top">
     <ng-container *ngFor="let t of todo">
-      <ion-item-sliding #item *ngIf="t.done == 'false'">
+      <ion-item-sliding #item *ngIf="t.done == false">
         <ion-item (click)="showNote(t.id)">
           <ion-label>{{ t.title }}</ion-label>
           <ion-note slot="end" color="tertiary">{{ t.due }}</ion-note>
         </ion-item>
     
         <ion-item-options side="end">
-          <ion-item-option (click)="setDone(t)" color="success">Erledigt</ion-item-option>
+          <ion-item-option (click)="setDone(t.id)" color="success">Erledigt</ion-item-option>
         </ion-item-options>
 
         <ion-item-options side="start">
