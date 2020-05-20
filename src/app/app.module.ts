@@ -9,6 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EditPagePageModule } from './edit-page/edit-page.module';
+import { AddPageModule } from './add/add.module';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +20,10 @@ import { EditPagePageModule } from './edit-page/edit-page.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    EditPagePageModule],
+    FormsModule,
+    ReactiveFormsModule,
+    EditPagePageModule,
+    AddPageModule],
   providers: [
     StatusBar,
     SplashScreen,

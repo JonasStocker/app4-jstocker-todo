@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Hinzufügen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="titleForm">
+    <ion-item>
+      <ion-label>
+        Titel:
+      </ion-label>
+
+      <ion-input type="text" formControlName="title">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Notiz:
+      </ion-label>
+
+      <ion-input type="text" formControlName="note">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Bis
+      </ion-label>
+      <ion-input type="date" min="2020-01-01" max="2099-12-31" formControlName="due">
+      </ion-input>
+    </ion-item>
+  </form>
+
+  <ion-button expand="full" [disabled]="!titleForm.valid" (click)="save()">
+    Hinzufügen & Schließen
+  </ion-button>
+</ion-content>

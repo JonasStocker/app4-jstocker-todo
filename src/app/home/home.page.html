@@ -3,6 +3,12 @@
     <ion-title>
       {{ title }}
     </ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="addTodo()">
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

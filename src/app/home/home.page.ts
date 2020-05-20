@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { EditPagePage } from '../edit-page/edit-page.page';
 import { Todo } from 'src/models/Todo';
+import { AddPage } from '../add/add.page';
 
 @Component({
   selector: 'app-home',
@@ -60,7 +61,6 @@ export class HomePage {
   }
 
   async editNote(id, item) {
-    console.log(id);
     const pos = this.todo.findIndex((t) => {
       return t.id == id;
     });
@@ -85,5 +85,23 @@ export class HomePage {
     }
 
     item.close();
+  }
+
+  async addTodo() {
+    const modal = await this.modalCtrl.create({
+      component: AddPage,
+      componentProps: {
+        title: "",
+        note: ""
+      }
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+
+    this.todo.push(new Todo(data.title, data.note, data.due));
+
+    console.log(this.todo)
   }
 }
