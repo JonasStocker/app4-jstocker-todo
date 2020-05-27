@@ -19,7 +19,7 @@ export class HomePage {
     new Todo('Todo', 'Arbeitsauftrag in APP4', '2020-05-14'),
   ];
 
-  
+  sausage = false;
 
   title = 'Aufgaben';
 

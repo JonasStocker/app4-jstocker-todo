@@ -4,18 +4,24 @@
       {{ title }}
     </ion-title>
 
-    <ion-buttons slot="primary">
+    <ion-buttons slot="primary" class="ion-margin-end">
       <ion-button (click)="addTodo()">
         <ion-icon slot="icon-only" name="add-circle"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+
+    <ion-item class="ion-margin-start">
+      <ion-label style="color: gray;">Erledigte Arbeitsaufträge anzeigen?</ion-label>
+      <ion-toggle [(ngModel)]="sausage" color="success"></ion-toggle>
+    </ion-item>
+  
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-list class="ion-margin-start ion-margin-end ion-margin-top">
     <ng-container *ngFor="let t of todo">
-      <ion-item-sliding #item *ngIf="t.done == false">
+      <ion-item-sliding #item *ngIf="sausage == true || t.done == false">
         <ion-item (click)="showNote(t.id)">
           <ion-label>{{ t.title }}</ion-label>
           <ion-note slot="end" color="tertiary">{{ t.due }}</ion-note>
